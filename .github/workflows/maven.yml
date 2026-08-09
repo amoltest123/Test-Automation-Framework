@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v7.0.1
       with:
         name: screenshot
-        path: screenshot/
+        path: screenshots/
 
     - name: Upload Test Reports
       if: always()
