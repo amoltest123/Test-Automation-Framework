@@ -18,6 +18,7 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+					<useSystemClassLoader>false</useSystemClassLoader>
 					<systemPropertyVariables>
 						<browser>${browser}</browser>
 						<isLambdaTest>${isLambdaTest}</isLambdaTest>
