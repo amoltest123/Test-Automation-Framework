@@ -36,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v7.0.1
       with:
         name: screenshot
-        path: screenshot/
+        path: screenshots/
 
     - name: Upload Test Reports
       if: always()
@@ -50,12 +50,15 @@ jobs:
 
     - name: Copy Report to gh-pages folder
       if: always()
-
+      
       run: |
-        mkdir -p public/extent-reports/
+        mkdir -p public/extent-reports/screenshots/
         cp -R report.html public/extent-reports/
-        cp -R screenshots/ public/extent-reports/screenshots/
-        ls -l
+        if [ -d screenshots ]; then
+        cp -R screenshots public/extent-reports/
+        fi
+        ls -l public/extent-reports/
+
 
     - name: Deploy
       if: always()
