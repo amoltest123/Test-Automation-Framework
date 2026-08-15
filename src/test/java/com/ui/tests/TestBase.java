@@ -1,7 +1,5 @@
 package com.ui.tests;
 
-import static com.constants.Browser.CHROME;
-
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -24,10 +22,8 @@ public class TestBase {
 
 	@Parameters({ "browser", "isLambdaTest", "isHeadless" })
 	@BeforeMethod(description = "Load the Homepage of the website")
-	public void setup(
-			@Optional("chrome") String browser,
-			@Optional("false") boolean isLambdaTest,
-			@Optional("true") boolean isHeadless, ITestResult result) {
+	public void setup(@Optional("chrome") String browser, @Optional("false") boolean isLambdaTest,
+			@Optional("false") boolean isHeadless, ITestResult result) {
 
 		this.isLambdaTest = isLambdaTest;
 		WebDriver lambdaDriver;
@@ -43,14 +39,16 @@ public class TestBase {
 		}
 	}
 
-	@AfterMethod(description = "Tear Down the browser")
 	public BrowserUtility getInstance() {
 		return homePage;
 	}
 
-	public void tearDown() {
-		if (isLambdaTest) {
-			LambdaTestUtility.quitSession();
-		}
-	}
+//	@AfterMethod(description = "Tear Down the browser")
+//	public void tearDown() {
+//		if (isLambdaTest) {
+//			LambdaTestUtility.quitSession();
+//		} else {
+//			homePage.quit();
+//		}
+//	}
 }

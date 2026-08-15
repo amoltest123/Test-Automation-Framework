@@ -35,4 +35,9 @@ public final class HomePage extends BrowserUtility {
 		LoginPage loginPage = new LoginPage(getDriver());
 		return loginPage;
 	}
+
+	public void quit() {
+		getDriver().quit();
+
+	}
 }
